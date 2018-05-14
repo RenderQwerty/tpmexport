@@ -6,10 +6,10 @@ Inpired by https://teampasswordmanager.com/docs/keepass-export/
 ```
 clone this repo, insert appropriate values (URL,LOGIN,PASSWORD) to source/tpmke.php
 ```
-Then run `docker build .`
+Then run `docker build -t exporter .`
 
 And you are ready to run builded image like this:
 ```bash
-docker run --add-host="hostname:ipaddress" --mount type=bind,src="$(pwd)"/export,dst=/export
+docker run --add-host="hostname:ipaddress" --mount type=bind,src="$(pwd)"/export,dst=/export exporter:latest
 ```
 
