@@ -5,8 +5,12 @@ services:
   build: .
   image: exporter:latest
   volumes:
-          - ./source/tpmke.php:/www/tpmke.php
           - ./export:/export
   extra_hosts:
-          - "hostname:ipaddress"
+         - "tpm.example.com:192.168.1.15"
+  environment:
+          - TPM_URL=https://tpm.example.com/index.php
+          - TPM_USERNAME=admin
+          - TPM_PASSWORD=strongpassword
+
 
