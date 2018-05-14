@@ -8,7 +8,7 @@ clone this repo, insert appropriate values (URL,LOGIN,PASSWORD) to source/tpmke.
 ```
 Then run `docker build .`
 
-And you are ready to run buided image like this:
+And you are ready to run builded image like this:
 ```bash
 docker run --add-host="hostname:ipaddress" --mount type=bind,src="$(pwd)"/export,dst=/export
 ```
