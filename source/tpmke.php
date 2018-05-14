@@ -1,26 +1,43 @@
-U2FsdGVkX18tIOM7zqLYAIJdZoNF8yviz4ueJvuh1cBPcANPEQBPC70KLGeysjt8
-IffkWy7khYRoEOwOqedeLq2kEBEcZ7QvGOtlF/VWwSZIasPtXN2WFFeW9YhZcQfX
-IxP7HKkyz8lrisQ6FAkoVvf6Ivd8FyjBv3WGnOo4Vn4YEMUtEN0hDe8sqjwMysV8
-PVryLTrhkHZdR8biytn11OGZQUej0XqKo+efagxcSSHh2vRUeYhyvqEdz7s0gR8r
-J5Ie3RkDrREEyzaEkhdn3AfUlkEIcI33kUYxnhaXrjbHThrV/gn2SIU3BYfn6QJM
-PEE4/3TWhcaJBkf81HeosZKB0mdVUz22bRF4KdY3kw2UU+NmylOwgM2vTFfdOBz4
-loZ2FWXIZQy8AJlKelNIHBEXod0uG/iraaNIseCv21eGHGuaFCahJk97Scf+oExq
-xODuQ48ROjz23/nuldo+8+2wApOHk/V4wJDBtecbK9KojL0ylH5jwgWpDpf8fmmd
-MqTD2Gma3kvFbRaZmdLnTUveKXmZt0OHCd4PtlMzFmydSplBx8qkNvpE57kMb6Fl
-rme65U0Z5Ux/NRh1nNdqIO8Yph2ibx0HVquF2pa+wYrANZ39VkKrPQU628cKRkUQ
-v28R9saL5zPNVRSf5D9mcMSrGIAH2reZcByAviV2do8fNSc2QIHK87Ny3cvIMf9a
-FBdajyejrQ+uBqUduj3aRlpOcKzSNK+5TT01cqpDz60UZW4PtR3+mAxTvy4PQsHo
-hAWwEwaFprdAkNhETN4K7kcKm+A7pYrGLa9n4rc32aB5Fq23Y7SGfvKLuooEN6os
-lOBQY7VX8P1iAQN/aT3TCM8Gntx3m2SJOmCqJT+AVYMt77ZZD6YqZDxMZNvXW5QH
-vRLhh8IBBimH3u9x/CSkTG4PZJjEGxMXalPm43/3ecNCh0LBDsh2FJMU4JXYELx2
-PZzVZzgJ/aGIFIWCvCldesv0bSCP217fORW+gwQ1B9ryhIkqD7aqT5V8HFgBksGo
-Zp7BUGhKVXV16RfofrGDJluFUs5fmmaOBc97nIbTJ+BP8trRZyKbOQAiWgqg76SC
-PSVyTJTDYt6hVxtl7Qa2tB1iS85UVZdzswfb3bkr+QGl1Dzbwfqd7iRdWRPfPa2n
-F0wZlvfe/gOEVCpElxMfmr4116uBhqBjYnQkwRc7KzF8a465OXgf9nQ6Hhf65MBK
-L1OA5FZyOA+v7X/AUHSMW62kirbCmnHL4CI9fOzADmlHCAf8VSKJoSp3ghn/MHdg
-3jSko/LDkHczyony5Ul149WifoxzLzHNjSHq7vO3kPivBazv+6t03XFnHEXXbzyF
-lYd8Lg3KKd5khnFe0s0BEOClqXYJL6Px0sHKldiPEU/dc8cZPoCFMvApVHHIrXsi
-iEKhLXWuLYJgkD+duExwzNy0zOGx7HYYXAQmhoVu3KFnRyO5G0INPlk62P3no70Q
-MgZ4Skj1gvCDdRbXlKFP413smJv78AuCmNi5dbfT1+9wZ2ba/G9qjNZqjABgcRQP
-Jx5e+vp/xQq28tS3cqgddGhDYgPNoGXYbQmYBcQBnLqeJ8W+vG/4nsvpAaEGeunX
-v013eLYOdDejE7ygfNnjB20jMPTrtRkGHuSzOFQyT/KgvB1Y7CEZwS5Uxk6qWiAR
+<?php
+
+// tpmke.php v.1.0
+// http://teampasswordmanager.com/docs/keepass-export/
+//
+// Ferran Barba, June 2017
+// info@teampasswordmanager.com
+// http://teampasswordmanager.com
+//
+// PHP script that exports projects and passwords from Team Password Manager to a Keepass XML 2.x File
+// using the TPM_Keepass_Export class (TPM_Keepass_Export.php)
+
+// **************** PARAMETERS ****************
+
+// File to export to (XML)
+// If it exists it will be overwritten
+$kfile = '/export/tpm_database.xml';
+
+// URL (including index.php) of the installation of Team Password Manager
+$tpm_url = 'https://YOUR_URL_OF_PASSWORD_MANAGER/index.php';
+
+// Username and password
+$tpm_username = 'USER_WITH_API_ACCESS';
+$tpm_password = 'PASSWORD_FOR_ABOVE_USER';
+
+// Initial project ID (0=root=everything)
+// You can see the ID of the project in its URL: $tpm_url/prj/view/ID
+$initial_project_id = 0;
+
+
+// **************** GO ****************
+
+// Load class file
+spl_autoload_register(function ($class_name) {
+    include $class_name . '.php';
+});
+
+$tki = new TPM_Keepass_Export();
+$tki->set_file($kfile);
+$tki->set_tpm_credentials($tpm_url, $tpm_username, $tpm_password);
+$tki->set_initial_project($initial_project_id);
+$tki->export();
+
