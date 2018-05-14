@@ -9,16 +9,19 @@ apk add --update tzdata && \
 cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
 echo "${TIMEZONE}" > /etc/timezone && \
 apk add --update \
+sed \
 php7 \
 php-xmlwriter \
 php7-curl \
+bash \
 php7-json
 
 RUN mkdir /www /export && \
 apk del tzdata && \
 rm -rf /var/cache/apk/*
 
-WORKDIR /www
-COPY source/TPM_Keepass_Export.php /www/
-ENTRYPOINT ["php", "tpmke.php"]
+COPY source/* /www/
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod 0755 /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 

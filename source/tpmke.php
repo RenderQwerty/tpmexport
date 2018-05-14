@@ -17,7 +17,7 @@
 $kfile = '/export/tpm_database.xml';
 
 // URL (including index.php) of the installation of Team Password Manager
-$tpm_url = 'https://YOUR_URL_OF_PASSWORD_MANAGER/index.php';
+$tpm_url = 'YOUR_URL_OF_PASSWORD_MANAGER';
 
 // Username and password
 $tpm_username = 'USER_WITH_API_ACCESS';
