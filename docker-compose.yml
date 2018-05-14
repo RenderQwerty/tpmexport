@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+ exporter:
+  build: .
+  image: exporter:latest
+  volumes:
+          - ./source/tpmke.php:/www/tpmke.php
+          - ./export:/export
+  extra_hosts:
+          - "hostname:ipaddress"
+

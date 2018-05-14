@@ -19,6 +19,6 @@ apk del tzdata && \
 rm -rf /var/cache/apk/*
 
 WORKDIR /www
-COPY source/* /www/
+COPY source/TPM_Keepass_Export.php /www/
 ENTRYPOINT ["php", "tpmke.php"]
 
