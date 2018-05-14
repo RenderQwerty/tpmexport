@@ -3,7 +3,8 @@
 Inpired by https://teampasswordmanager.com/docs/keepass-export/
 
 #### How to build:
-```clone this repo, insert appropriate values (URL,LOGIN,PASSWORD) to source/tpmke.php
+```
+clone this repo, insert appropriate values (URL,LOGIN,PASSWORD) to source/tpmke.php
 ```
 Then run `docker build .`
 
