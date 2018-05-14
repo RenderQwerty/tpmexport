@@ -1,7 +1,8 @@
 Team password manager export
 ==========
 
-Source code of docker image: https://hub.docker.com/r/jaels/tpmexport/
+This is source code of [docker image](https://hub.docker.com/r/jaels/tpmexport/) which acts as wrapper on the TPM-Keepass-Export script.
+Main goal is to export projects and passwords from Team Password Manager to KeePass Password Safe XML 2.x files. It does so using the Team Password Manager API.
 
 Inpired by https://teampasswordmanager.com/docs/keepass-export/
 
