@@ -6,5 +6,8 @@ Inpired by https://teampasswordmanager.com/docs/keepass-export/
 
 Then run `docker build .`
 
-Run this image like this: `docker run --add-host="tpmhostNAME:tpmIP" --mount type=bind,src="$(pwd)"/export,dst=/export`
+Run this image like this:
+```bash
+docker run --add-host="tpmhostNAME:tpmIP" --mount type=bind,src="$(pwd)"/export,dst=/export
+```
 
