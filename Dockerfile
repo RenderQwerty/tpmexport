@@ -13,7 +13,6 @@ sed \
 php7 \
 php-xmlwriter \
 php7-curl \
-bash \
 php7-json
 
 RUN mkdir /www /export && \
