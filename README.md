@@ -12,7 +12,7 @@ Usage
 Easy way:
 * change $tpm_url, $tpm_username and $tpm_password in `source/tpmke.php` to aprropritate values for your instance
 * Replace `hostname` with fqdn hostname of your tpm instance and `ipaddress` with ip address
-
+* run `docker-compose up`, wait untill its finished and grab your exported passwords from export/tpm_database.xml
 
 Build without docker-compose:
 * change $tpm_url, $tpm_username and $tpm_password in `source/tpmke.php` to aprropritate values for your instance
