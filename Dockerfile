@@ -12,10 +12,9 @@ apk add --update \
 php7 \
 php-xmlwriter \
 php7-curl \
-php7-json \
-bash
+php7-json
 
-RUN mkdir /www && \
+RUN mkdir /www /export && \
 apk del tzdata && \
 rm -rf /var/cache/apk/*
 
