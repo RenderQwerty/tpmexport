@@ -8,7 +8,10 @@ Inpired by https://teampasswordmanager.com/docs/keepass-export/
 
 Usage
 --------
-docker run --add-host="HOSTNAME:IP" -e "TPM_URL=https://tpm.example.com/index.php" -e "TPM_USERNAME=admin"-e "TPM_PASSWORD=strongpassword" --mount type=bind,src="$(pwd)"/export,dst=/export jaels/tpmexport:latest
+* Replace HOSTNAME with fqdn of teem password manager instance and IP with IP address.
+* Set variables - $TPM_URL, $TPM_USERNAME and $TPM_PASSWORD to aprropritate values for your instance
+
+docker run --add-host="HOSTNAME:IP" -e "TPM_URL=https://tpm.example.com/index.php" -e "TPM_USERNAME=admin" -e "TPM_PASSWORD=strongpassword" --mount type=bind,src="$(pwd)"/export,dst=/export jaels/tpmexport:latest
 > Dont forget to replace `HOSTNAME` with fqdn hostname of your tpm instance and `IP` with ip address.
 
 Manual build
