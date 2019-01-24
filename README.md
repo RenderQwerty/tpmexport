@@ -11,3 +11,8 @@ Usage
 * change $TPM_URL, $TPM_USERNAME and $TPM_PASSWORD in `docker-compose.yml` environments to aprropritate values for your instance
 * Insert correct fqdn and ip address into `extra_hosts` section in `docker-compose.yml`
 * run `docker-compose up`, wait untill its finished and grab your exported passwords from export/tpm_database.xml
+
+Requirements
+--------
+* [docker](https://www.docker.com/)
+* [docker-compose](https://docs.docker.com/compose/)
